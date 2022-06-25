@@ -6,7 +6,7 @@
 #
 
 MESSAGES:
-  NO_PERMISSION: "&cNo Permission!"
+  NO_PERMISSION: "&cYou do not have permission to run this command."
   SILENT_PREFIX: "&7[Silent] "
   BROADCAST: "&a%target% was %type% by %issuer%."
   PUNISHMENT:

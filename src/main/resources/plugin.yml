@@ -1,8 +1,8 @@
-name: PunishmentsX
-description: An extremely advanced punishments plugin (https://github.com/Cowings/PunishmentsX).
-version: ${punishmentsx.desc}
-author: Cowings
-main: io.github.punishmentsx.PunishmentsX
+name: ${project.name}
+version: ${project.version} (Build ${git.commit.id.abbrev}, ${git.commit.time})
+description: ${project.description}
+author: jmsgvn
+main: ${project.groupId}.${project.artifactId}
 softdepend:
   - Essentials
   - VentureChat
