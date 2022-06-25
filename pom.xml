@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Punishments</name>
-    <groupId>com.jmsgvn.punishments</groupId>
-    <artifactId>Punishments</artifactId>
+    <name>Erbium</name>
+    <groupId>com.jmsgvn.erbium</groupId>
+    <artifactId>Erbium</artifactId>
     <version>1.0</version>
     <description>A punishments plugin</description>
 
@@ -119,9 +119,9 @@
                     <execution>
                         <phase>initialize</phase>
                         <configuration>
-                            <format>git-Punishments-%s</format>
+                            <format>git-Erbium-%s</format>
                             <scmDirectory>${project.basedir}</scmDirectory>
-                            <descriptionProperty>punishments.desc</descriptionProperty>
+                            <descriptionProperty>erbium.desc</descriptionProperty>
                         </configuration>
                         <goals>
                             <goal>describe</goal>
@@ -157,7 +157,7 @@
                     <!-- Deploy the non shaded jar as main artifact -->
                     <shadedArtifactAttached>true</shadedArtifactAttached>
                     <!-- Use the base jar name, to help server owners download the right jar -->
-                    <finalName>Punishments</finalName>
+                    <finalName>Erbium</finalName>
 
                     <!--
                     Relocate all lib we use in order to fix class loading errors if we use different versions
@@ -166,19 +166,19 @@
                     <relocations combine.children="append">
                         <relocation>
                             <pattern>org.bson</pattern>
-                            <shadedPattern>com.jmsgvn.punishments.libs.org.bson</shadedPattern>
+                            <shadedPattern>com.jmsgvn.erbium.libs.org.bson</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>com.mongodb</pattern>
-                            <shadedPattern>com.jmsgvn.punishments.libs.com.mongodb</shadedPattern>
+                            <shadedPattern>com.jmsgvn.erbium.libs.com.mongodb</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>xyz.leuo.gooey</pattern>
-                            <shadedPattern>com.jmsgvn.punishments.libs.xyz.leuo.gooey</shadedPattern>
+                            <shadedPattern>com.jmsgvn.erbium.libs.xyz.leuo.gooey</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>redis.clients.jedis</pattern>
-                            <shadedPattern>com.jmsgvn.punishments.libs.redis.clients.jedis</shadedPattern>
+                            <shadedPattern>com.jmsgvn.erbium.libs.redis.clients.jedis</shadedPattern>
                         </relocation>
                     </relocations>
 
@@ -207,6 +207,51 @@
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                     </transformers>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>scp-to-remote</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- keyfile+passphrase or  password, choose one -->
+                                <!--
+                                <scp localFile="${project.basedir}/target/qos-spark-1.0.jar"
+                                  remoteToFile="root@192.168.203.156:/usr/sanss" verbose="true"
+                                  keyfile="C:\Users\shengw\.ssh\192.168.203.156\id_rsa"
+                                  passphrase="">
+                                </scp>
+                                 -->
+                                <scp localFile="${project.basedir}/target/${project.name}-${project.version}-shaded.jar"
+                                     remoteToFile="${env.PERCY}/home/james/Bungeecord/Lobby/plugins" verbose="true"
+                                     password="${env.PASSWORD}" trust="true">
+                                </scp>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+                <!-- libraries for scp impl      -->
+                <!-- antrun doesn't use os's scp -->
+                <dependencies>
+                    <dependency>
+                        <groupId>com.jcraft</groupId>
+                        <artifactId>jsch</artifactId>
+                        <version>0.1.53</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>ant</groupId>
+                        <artifactId>ant-jsch</artifactId>
+                        <version>1.6.5</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
