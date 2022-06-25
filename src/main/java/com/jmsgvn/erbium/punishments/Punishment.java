@@ -197,6 +197,7 @@ public @Data class Punishment {
                 issuerName = p.getName();
             } else {
                 issuerName = ConfigValues.CONSOLE_NAME.format(plugin);
+                issuer = UUID.randomUUID();
             }
         } else {
             if (pardoner != null) {

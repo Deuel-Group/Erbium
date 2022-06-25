@@ -25,10 +25,10 @@ public class HistoryMenu {
         PaginatedGUI gui = new PaginatedGUI(
             Locale.HISTORY_TITLE.format(plugin).replace("%player%", targetProfile.getName()), 27);
 
-        gui.setButton(0, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(1, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(2, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(3, new Button(Material.STAINED_GLASS_PANE, ""));
+        gui.setButton(0, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(1, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(2, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(3, new Button(Material.STAINED_GLASS_PANE, " "));
         if (notes != null) {
             Button backButton = new Button(Material.REDSTONE, "&c&lBack");
             backButton.setLore("&fClick to return to punish menu");
@@ -38,12 +38,12 @@ public class HistoryMenu {
             });
             gui.setButton(4, backButton);
         } else {
-            gui.setButton(4, new Button(Material.STAINED_GLASS_PANE, ""));
+            gui.setButton(4, new Button(Material.STAINED_GLASS_PANE, " "));
         }
-        gui.setButton(5, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(6, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(7, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(8, new Button(Material.STAINED_GLASS_PANE, ""));
+        gui.setButton(5, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(6, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(7, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(8, new Button(Material.STAINED_GLASS_PANE, " "));
 
         List<Punishment> punishments = targetProfile.getPunishmentsHistory();
         TreeMap<Date, Punishment> map = new TreeMap<>();

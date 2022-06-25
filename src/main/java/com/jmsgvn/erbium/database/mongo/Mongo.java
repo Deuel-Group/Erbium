@@ -35,11 +35,11 @@ public class Mongo extends Database {
         } else {
             MongoClientSettings mcs = MongoClientSettings.builder()
                     .uuidRepresentation(UuidRepresentation.STANDARD)
-                    .applyConnectionString(new ConnectionString(plugin.getConfig().getString(ConfigValues.MONGO_URI.format(plugin))))
+                    .applyConnectionString(new ConnectionString(plugin.getConfig().getString(ConfigValues.MONGO_URI.path)))
                     .build();
 
             mongoClient = MongoClients.create(mcs);
-            mongoDatabase = mongoClient.getDatabase(ConfigValues.MONGO_DATABASE.format(plugin));
+            mongoDatabase = mongoClient.getDatabase(ConfigValues.MONGO_DATABASE.noFormat(plugin));
         }
     }
 

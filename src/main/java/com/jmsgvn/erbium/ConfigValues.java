@@ -11,9 +11,13 @@ public enum ConfigValues {
 
     CONSOLE_NAME("GENERAL.CONSOLE_NAME");
 
-    private String path;
+    public String path;
 
     public String format(Erbium plugin) {
         return Colors.convertLegacyColors(plugin.getConfig().getString(path));
+    }
+
+    public String noFormat(Erbium plugin) {
+        return plugin.getConfig().getString(path);
     }
 }

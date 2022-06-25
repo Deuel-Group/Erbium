@@ -46,12 +46,12 @@ public class PunishMenu {
             }
         });
 
-        gui.setButton(0, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(1, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(2, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(6, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(7, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(8, new Button(Material.STAINED_GLASS_PANE, ""));
+        gui.setButton(0, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(1, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(2, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(6, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(7, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(8, new Button(Material.STAINED_GLASS_PANE, " "));
 
         String name = silent ? "&a&lSilent Punishment (ON)" : "&C&lSilent Punishment (OFF)";
 
@@ -76,15 +76,15 @@ public class PunishMenu {
         });
         gui.setButton(5, button5);
 
-        gui.setButton(9, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(10, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(11, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(12, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(13, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(14, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(15, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(16, new Button(Material.STAINED_GLASS_PANE, ""));
-        gui.setButton(17, new Button(Material.STAINED_GLASS_PANE, ""));
+        gui.setButton(9, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(10, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(11, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(12, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(13, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(14, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(15, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(16, new Button(Material.STAINED_GLASS_PANE, " "));
+        gui.setButton(17, new Button(Material.STAINED_GLASS_PANE, " "));
 
         for (String key : config.getConfigurationSection("MENUS.PUNISH.SLOTS").getKeys(false)) {
             ConfigurationSection section = config.getConfigurationSection("MENUS.PUNISH.SLOTS." + key);
